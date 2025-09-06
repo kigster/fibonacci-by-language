@@ -1,4 +1,4 @@
-# Fibonacci in Four Compiled Languages
+# Fibonacci in Six Compiled Languages, Two Interpreted, & Assembly
 
 This is a quick repo that compares Fibonacci Sequence generations up to 100.
 
