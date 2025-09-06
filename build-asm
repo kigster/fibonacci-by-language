@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# vim: ft=bash
+
+rm -f src/fibonacci.o
+
+echo "Compiling assembly code into object file..."
+clang -c -arch arm64 src/fibonacci.s -o src/fibonacci.o
+
+echo "Linking object file into executable..."
+ld -macos_version_min 15.0 -lSystem -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _main -arch arm64 -o ../bin/fib-asm src/fibonacci.o 
+
+

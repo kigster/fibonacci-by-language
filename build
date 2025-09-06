@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# vim: ft=bash
+
+set -ex
+
+rm -f bin/fib-*
+
+clang     -o  bin/fib-c   -O3             src/fibonacci.c
+clang++   -o  bin/fib-cpp -O3  -std=c++20 src/fibonacci.cpp
+go build  -o  bin/fib-go                  src/fibonacci.go
+rustc     -o  bin/fib-rust                src/fibonacci.rs
+
+cp src/fibonacci.py bin/fib-python; chmod +x bin/fib-python
+cp src/fibonacci.rb bin/fib-ruby;   chmod +x bin/fib-ruby
+
+set +x

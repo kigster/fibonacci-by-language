@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# vim: ft=bash
+
+declare -a colors
+colors=( ${bldylw} ${bldgrn} ${bldred} ${bldblu} ${bldpur} ${bldcyn} ${bldwht} )
+index=0
+for file in bin/fib-*; do 
+  echo -n -e "${colors[$index]}━━━┥$(printf '%-12.12s' $file) 90┝━━━━━━━━━━━━━━━━━→ ${clr}"; 
+  ((index++))
+  ( time ( echo 90 | ./$file 2>&1 | sed '/^$/d' | tail -1) 2>&1 ) | grep -E -v 'sys|real' | sed 's/user//g' | tr -d '\n' ;  
+  echo
+done
