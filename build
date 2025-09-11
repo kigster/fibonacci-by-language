@@ -4,6 +4,7 @@
 set -ex
 
 rm -f bin/fib-*
+mkdir -p bin
 
 clang     -o  bin/fib-c   -O3             src/fibonacci.c
 clang++   -o  bin/fib-cpp -O3  -std=c++20 src/fibonacci.cpp
